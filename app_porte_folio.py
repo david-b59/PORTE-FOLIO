@@ -279,31 +279,23 @@ elif tabs == 'CV':
     st.markdown('<h1 class="title">📄 Mon CV</h1>', unsafe_allow_html=True)
     st.markdown('<p class="subtitle">Consultez mon CV directement ou téléchargez-le !</p>', unsafe_allow_html=True)
 
-    # Fonction pour générer un lien d'accès local
-    def get_pdf_download_link(file_path):
-        with open(file_path, "rb") as file:
-            base64_pdf = base64.b64encode(file.read()).decode('utf-8')
-            pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="800" height="600"></iframe>'
-            return pdf_display
+    # URL directe du fichier PDF sur GitHub (via GitHub Raw)
+    pdf_url = "https://github.com/david-b59/PORTE-FOLIO/blob/main/CV_David_Bauduin_22-01-2025.pdf"
 
-    # Chemin vers ton fichier PDF
-    cv_file_path = "CV_David_Bauduin_22-01-2025.pdf"
+    # Affichage du fichier PDF dans un iframe
+    st.markdown(f"""
+        <div style="text-align: center; margin-top: 20px;">
+            <iframe src="{pdf_url}" width="800" height="600" style="border: none;"></iframe>
+        </div>
+    """, unsafe_allow_html=True)
 
-    try:
-        # Générer le contenu de l'iframe
-        pdf_display = get_pdf_download_link(cv_file_path)
-        st.markdown(pdf_display, unsafe_allow_html=True)
-
-        # Ajouter un bouton de téléchargement
-        with open(cv_file_path, "rb") as file:
-            st.download_button(
-                label="📥 Télécharger mon CV",
-                data=file,
-                file_name="CV_David_Bauduin_22-01-2025.pdf",
-                mime="application/pdf"
-            )
-    except FileNotFoundError:
-        st.error("Le fichier CV est introuvable. Vérifiez son emplacement.")
+    # Bouton de téléchargement pour le CV
+    st.download_button(
+        label="📥 Télécharger mon CV",
+        data=f"{pdf_url}",
+        file_name="CV_David_Bauduin_22-01-2025.pdf",
+        mime="application/pdf"
+    )
 
 elif tabs == 'Projets':
     st.header("Projets")
