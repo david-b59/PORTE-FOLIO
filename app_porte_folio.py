@@ -279,29 +279,32 @@ elif tabs == 'CV':
     st.markdown('<h1 class="title">📄 Mon CV</h1>', unsafe_allow_html=True)
     st.markdown('<p class="subtitle">Consultez mon CV directement ou téléchargez-le !</p>', unsafe_allow_html=True)
 
-    # Chemin vers le fichier
-    cv_file_path = "files/CV_David_Bauduin_22-01-2025.pdf"
-    
-    # Vérifiez que le fichier existe localement
+    # Fonction pour générer un lien d'accès local
+    def get_pdf_download_link(file_path):
+        with open(file_path, "rb") as file:
+            base64_pdf = base64.b64encode(file.read()).decode('utf-8')
+            pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="800" height="600"></iframe>'
+            return pdf_display
+
+    # Chemin vers ton fichier PDF
+    cv_file_path = "https://drive.google.com/file/d/1Ulsw_r0X5sadBnNSS-iZ9sPz-6YZx4Uq/view?usp=sharing"
+
     try:
+        # Générer le contenu de l'iframe
+        pdf_display = get_pdf_download_link(cv_file_path)
+        st.markdown(pdf_display, unsafe_allow_html=True)
+
+        # Ajouter un bouton de téléchargement
         with open(cv_file_path, "rb") as file:
-            # Afficher le bouton pour télécharger
             st.download_button(
                 label="📥 Télécharger mon CV",
                 data=file,
-                file_name="CV_David_Bauduin_22-01-2025.pdf",
+                file_name="https://drive.google.com/file/d/1Ulsw_r0X5sadBnNSS-iZ9sPz-6YZx4Uq/view?usp=sharing",
                 mime="application/pdf"
             )
     except FileNotFoundError:
-        st.error("Le fichier CV n'a pas été trouvé. Vérifiez le chemin.")
-    
-    # Bouton pour télécharger le fichier
-    st.download_button(
-        label="📥 Télécharger mon CV",
-        data=file,
-        file_name="CV_David_Bauduin_22-01-2025.pdf",
-        mime="application/pdf"
-    )
+        st.error("Le fichier CV est introuvable. Vérifiez son emplacement.")
+
 
 
 elif tabs == 'Projets':
