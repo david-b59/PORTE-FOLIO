@@ -279,14 +279,21 @@ elif tabs == 'CV':
     st.markdown('<h1 class="title">📄 Mon CV</h1>', unsafe_allow_html=True)
     st.markdown('<p class="subtitle">Consultez mon CV directement ou téléchargez-le !</p>', unsafe_allow_html=True)
 
+    # Chemin vers le fichier
     cv_file_path = "files/CV_David_Bauduin_22-01-2025.pdf"
-
-    # Afficher le PDF via un iframe
-    with open(cv_file_path, "rb") as file:
-        st.markdown(f"""
-            <iframe src="data:application/pdf;base64,{file.read().hex()}" 
-                    width="800" height="600" style="border: none;"></iframe>
-        """, unsafe_allow_html=True)
+    
+    # Vérifiez que le fichier existe localement
+    try:
+        with open(cv_file_path, "rb") as file:
+            # Afficher le bouton pour télécharger
+            st.download_button(
+                label="📥 Télécharger mon CV",
+                data=file,
+                file_name="CV_David_Bauduin_22-01-2025.pdf",
+                mime="application/pdf"
+            )
+    except FileNotFoundError:
+        st.error("Le fichier CV n'a pas été trouvé. Vérifiez le chemin.")
     
     # Bouton pour télécharger le fichier
     st.download_button(
