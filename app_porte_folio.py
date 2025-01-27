@@ -1,8 +1,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import seaborn as sns
-import matplotlib.pyplot as plt
 from st_on_hover_tabs import on_hover_tabs
 from pathlib import Path
 import base64
