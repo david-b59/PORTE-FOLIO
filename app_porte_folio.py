@@ -413,7 +413,7 @@ elif tabs == 'Projets':
 
         # slide image projet
         # URL de ton dépôt GitHub contenant les images
-        repo_url = "https://github.com/david-b59/PROJECTS/tree/main/toys-and-models-dashboard/power_bi/screenshots/"
+        repo_url = "https://raw.githubusercontent.com/david-b59/PROJECTS/main/toys-and-models-dashboard/power_bi/screenshots/"
         
         # Liste des noms de tes images
         image_paths = [f"image_{i}.png" for i in range(1, 19)]
