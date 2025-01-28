@@ -288,10 +288,9 @@ elif tabs == 'CV':
     # Bouton pour télécharger le CV
     st.markdown(f"📥 [Télécharger mon CV](https://github.com/david-b59/PORTE-FOLIO/raw/main/CV_David_Bauduin_22-01-2025.pdf)")
 
-    # Afficher le PDF dans une iframe
     st.markdown(f"""
-    <iframe src="{pdf_url}" width="700" height="1000" style="border:none;"></iframe>
-    """, unsafe_allow_html=True)
+<iframe src="https://david-b59.github.io/PORTE-FOLIO/CV_David_Bauduin_22-01-2025.pdf" width="700" height="1000" style="border:none;"></iframe>
+""", unsafe_allow_html=True)
            
 
 
