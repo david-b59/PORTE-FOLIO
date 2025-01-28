@@ -412,7 +412,7 @@ elif tabs == 'Projets':
         )
 
         # URL de base pour les images sur GitHub
-        repo_url = "https://raw.githubusercontent.com/david-b59/PROJECTS/main/toys-and-models-dashboard/power_bi/screenshots/
+        repo_url = "https://raw.githubusercontent.com/david-b59/PROJECTS/main/toys-and-models-dashboard/power_bi/screenshots/"
 
         # Liste des noms de tes fichiers (modifie selon tes fichiers réels)
         image_paths = [f"screenshot{i}.png" for i in range(1, 19)]
