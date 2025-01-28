@@ -417,8 +417,8 @@ elif tabs == 'Projets':
         # Liste des noms de tes fichiers (modifie selon tes fichiers réels)
         image_paths = [f"screenshot{i}.png" for i in range(1, 19)]
         
-        # Fonction pour charger les images
-        @st.cache_data  # Cache les images pour éviter des rechargements inutiles
+        # Fonction pour charger les images depuis GitHub
+        @st.cache_data
         def load_images(image_paths):
             images = []
             for image_name in image_paths:
@@ -434,28 +434,32 @@ elif tabs == 'Projets':
                     st.warning(f"Impossible de charger l'image {image_name} (HTTP {response.status_code})")
             return images
         
-        # Charger toutes les images une seule fois
+        # Charger toutes les images (cette opération est mise en cache)
         images = load_images(image_paths)
         
-        # Vérification si des images sont chargées
-        if not images:
-            st.error("Aucune image valide n'a pu être chargée. Vérifiez vos fichiers ou URLs.")
-        else:
-            # Initialisation du slider dans st.session_state
-            if "slider_index" not in st.session_state:
-                st.session_state.slider_index = 1
+        # Initialiser le slider dans st.session_state
+        if "slider_index" not in st.session_state:
+            st.session_state.slider_index = 1  # Début sur la première image
         
-            # Slider pour naviguer entre les images
-            st.session_state.slider_index = st.slider(
-                "Choisissez une image",
-                min_value=1,
-                max_value=len(images),
-                value=st.session_state.slider_index,
-            )
+        # Slider pour sélectionner une image
+        slider_value = st.slider(
+            "Choisissez une image",
+            min_value=1,
+            max_value=len(images),
+            value=st.session_state.slider_index,
+            key="slider",  # Utilisation d'une clé unique pour conserver l'état
+        )
         
-            # Afficher l'image correspondante
+        # Mettre à jour l'état du slider
+        st.session_state.slider_index = slider_value
+        
+        # Vérifier si les images sont disponibles
+        if images:
+            # Afficher l'image correspondant à l'index actuel
             index = st.session_state.slider_index
             st.image(images[index - 1], caption=f"Image {index}", use_column_width=True)
+        else:
+            st.error("Aucune image valide n'a été chargée.")
 
         # Footer
         st.markdown(
