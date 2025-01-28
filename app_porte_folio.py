@@ -4,7 +4,7 @@ import numpy as np
 from st_on_hover_tabs import on_hover_tabs
 from pathlib import Path
 import base64
-from streamlit_pdf_viewer import pdf_viewer
+
 
 st.set_page_config(layout="wide")
 
@@ -288,11 +288,7 @@ elif tabs == 'CV':
     # Bouton pour télécharger le CV
     st.markdown(f"📥 [Télécharger mon CV](https://github.com/david-b59/PORTE-FOLIO/raw/main/CV_David_Bauduin_22-01-2025.pdf)")
 
-    # URL de votre PDF sur GitHub Pages
-    pdf_url = "https://david-b59.github.io/PORTE-FOLIO/CV_David_Bauduin_22-01-2025.pdf"
-    
-    # Affichage du PDF
-    pdf_viewer(pdf_url)
+    st.image("")
 
            
 
