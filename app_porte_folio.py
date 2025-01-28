@@ -412,39 +412,38 @@ elif tabs == 'Projets':
         )
 
         # URL de base pour les images sur GitHub
-        repo_url = "https://raw.githubusercontent.com/david-b59/PROJECTS/main/toys-and-models-dashboard/power_bi/screenshots/"
-        
-        # Liste des noms de tes fichiers
-        image_paths = [f"screenshot{i}.png" for i in range(1, 19)]  # Remplace par les bons noms si besoin
+        repo_url = "https://raw.githubusercontent.com/david-b59/PROJECTS/main/toys-and-models-dashboard/power_bi/screenshots/
+
+        # Liste des noms de tes fichiers (modifie selon tes fichiers réels)
+        image_paths = [f"screenshot{i}.png" for i in range(1, 19)]
         
         # Fonction pour charger une image depuis une URL
-        def load_image(image_name):
-            image_url = f"{repo_url}{image_name}"
-            response = requests.get(image_url)
-            
-            # Vérifier si la requête a réussi
-            if response.status_code == 200:
-                try:
-                    img = Image.open(BytesIO(response.content))
-                    return img
-                except Exception as e:
-                    st.error(f"Impossible de charger l'image : {image_name}. Erreur : {e}")
-                    return None
-            else:
-                st.error(f"Erreur HTTP {response.status_code} pour l'image : {image_name}")
-                return None
+        @st.cache_data  # Cache les données pour éviter de les recharger à chaque interaction
+        def load_images(image_paths):
+            images = []
+            for image_name in image_paths:
+                image_url = f"{repo_url}{image_name}"
+                response = requests.get(image_url)
+                if response.status_code == 200:
+                    try:
+                        img = Image.open(BytesIO(response.content))
+                        images.append(img)
+                    except Exception as e:
+                        st.warning(f"Erreur lors du chargement de l'image {image_name}: {e}")
+                else:
+                    st.warning(f"Impossible de charger l'image {image_name} (HTTP {response.status_code})")
+            return images
         
-        # Charger les images
-        images = [load_image(img) for img in image_paths]
-        images = [img for img in images if img is not None]  # Supprimer les images non valides
+        # Charger toutes les images
+        images = load_images(image_paths)
         
         # Vérifier si des images ont été chargées
         if images:
-            # Slider pour choisir une image
+            # Créer un slider pour choisir une image
             index = st.slider("Choisissez une image", 1, len(images), 1)
         
             # Afficher l'image sélectionnée
-            st.image(images[index - 1], caption=f"Image {index}", use_container_width=True)
+            st.image(images[index - 1], caption=f"Image {index}", use_column_width=True)
         else:
             st.error("Aucune image valide n'a pu être chargée. Vérifiez les URLs ou les fichiers.")
 
