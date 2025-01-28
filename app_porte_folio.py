@@ -279,11 +279,8 @@ elif tabs == 'CV':
     st.markdown('<h1 class="title">📄 Mon CV</h1>', unsafe_allow_html=True)
     st.markdown('<p class="subtitle">Consultez mon CV directement ou téléchargez-le !</p>', unsafe_allow_html=True)
 
-    # Lien brut vers ton CV PDF hébergé sur GitHub (remplace par ton lien)
-    pdf_url = "https://david-b59.github.io/PORTE-FOLIO/CV_David_Bauduin_22-01-2025.pdf"
-
     # Bouton pour télécharger le CV
-    st.markdown(f"📥 [Télécharger mon CV](https://github.com/david-b59/PORTE-FOLIO/raw/main/CV_David_Bauduin_28-01-2025.pdf)")
+    st.markdown(f"📥 [Télécharger mon CV](https://github.com/david-b59/PORTE-FOLIO/raw/main/CV_David_Bauduin_28_01_2025.pdf)")
 
     st.image("https://david-b59.github.io/PORTE-FOLIO/cv_image_01.PNG")
 
