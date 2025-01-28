@@ -471,8 +471,6 @@ elif tabs == 'Projets':
 
     elif st.session_state["selected_project"] == "cinema":
         st.write("Projet choisi : Project Recommandation Cinema")
-        # Ajoute ici le contenu de ce projet...
-        project_placeholder.empty()  # Efface le contenu précédent
 
         st.write("Projet choisi : Project Recommandation Cinema")
 
