@@ -414,7 +414,7 @@ elif tabs == 'Projets':
         # URL de base pour les images sur GitHub
         repo_url = "https://raw.githubusercontent.com/david-b59/PROJECTS/main/toys-and-models-dashboard/power_bi/screenshots/"
         
-        # Liste des noms de tes fichiers (modifie selon tes fichiers réels)
+        # Liste des noms de tes fichiers
         image_paths = [f"screenshot{i}.png" for i in range(1, 19)]
         
         # Fonction pour charger les images depuis GitHub
@@ -434,32 +434,29 @@ elif tabs == 'Projets':
                     st.warning(f"Impossible de charger l'image {image_name} (HTTP {response.status_code})")
             return images
         
-        # Charger toutes les images (cette opération est mise en cache)
+        # Charger toutes les images
         images = load_images(image_paths)
         
-        # Initialiser le slider dans st.session_state
-        if "slider_index" not in st.session_state:
-            st.session_state.slider_index = 1  # Début sur la première image
-        
-        # Slider pour sélectionner une image
-        slider_value = st.slider(
-            "Choisissez une image",
-            min_value=1,
-            max_value=len(images),
-            value=st.session_state.slider_index,
-            key="slider",  # Utilisation d'une clé unique pour conserver l'état
-        )
-        
-        # Mettre à jour l'état du slider
-        st.session_state.slider_index = slider_value
-        
-        # Vérifier si les images sont disponibles
-        if images:
-            # Afficher l'image correspondant à l'index actuel
-            index = st.session_state.slider_index
-            st.image(images[index - 1], caption=f"Image {index}", use_column_width=True)
+        # Vérifier si des images sont chargées
+        if not images:
+            st.error("Aucune image valide n'a pu être chargée.")
         else:
-            st.error("Aucune image valide n'a été chargée.")
+            # Initialisation de l'index dans st.session_state
+            if "index" not in st.session_state:
+                st.session_state.index = 0
+        
+            # Créer des boutons pour naviguer
+            col1, col2, col3 = st.columns([1, 2, 1])
+            with col1:
+                if st.button("⬅️ Précédent"):
+                    st.session_state.index = (st.session_state.index - 1) % len(images)
+            with col3:
+                if st.button("➡️ Suivant"):
+                    st.session_state.index = (st.session_state.index + 1) % len(images)
+        
+            # Afficher l'image actuelle
+            index = st.session_state.index
+            st.image(images[index], caption=f"Image {index + 1}", use_column_width=True)
 
         # Footer
         st.markdown(
