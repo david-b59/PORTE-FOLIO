@@ -411,28 +411,42 @@ elif tabs == 'Projets':
             unsafe_allow_html=True
         )
 
-        # slide image projet
-        # URL de ton dépôt GitHub contenant les images
+        # URL de base pour les images sur GitHub
         repo_url = "https://raw.githubusercontent.com/david-b59/PROJECTS/main/toys-and-models-dashboard/power_bi/screenshots/"
         
-        # Liste des noms de tes images
-        image_paths = [f"image_{i}.png" for i in range(1, 19)]
+        # Liste des noms de tes fichiers
+        image_paths = [f"screenshot{i}.png" for i in range(1, 19)]  # Remplace par les bons noms si besoin
         
-        # Fonction pour charger l'image depuis GitHub
+        # Fonction pour charger une image depuis une URL
         def load_image(image_name):
             image_url = f"{repo_url}{image_name}"
             response = requests.get(image_url)
-            img = Image.open(BytesIO(response.content))
-            return img
+            
+            # Vérifier si la requête a réussi
+            if response.status_code == 200:
+                try:
+                    img = Image.open(BytesIO(response.content))
+                    return img
+                except Exception as e:
+                    st.error(f"Impossible de charger l'image : {image_name}. Erreur : {e}")
+                    return None
+            else:
+                st.error(f"Erreur HTTP {response.status_code} pour l'image : {image_name}")
+                return None
         
-        # Charger toutes les images
+        # Charger les images
         images = [load_image(img) for img in image_paths]
+        images = [img for img in images if img is not None]  # Supprimer les images non valides
         
-        # Slider pour choisir l'image
-        index = st.slider("Choisissez une image", 1, len(images), 1)
+        # Vérifier si des images ont été chargées
+        if images:
+            # Slider pour choisir une image
+            index = st.slider("Choisissez une image", 1, len(images), 1)
         
-        # Afficher l'image sélectionnée
-        st.image(images[index - 1], caption=f"Image {index}", use_column_width=True)
+            # Afficher l'image sélectionnée
+            st.image(images[index - 1], caption=f"Image {index}", use_column_width=True)
+        else:
+            st.error("Aucune image valide n'a pu être chargée. Vérifiez les URLs ou les fichiers.")
 
         # Footer
         st.markdown(
