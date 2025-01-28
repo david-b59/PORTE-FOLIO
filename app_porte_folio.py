@@ -280,13 +280,13 @@ elif tabs == 'CV':
     st.markdown('<p class="subtitle">Consultez mon CV directement ou téléchargez-le !</p>', unsafe_allow_html=True)
 
     # Lien brut vers ton CV PDF hébergé sur GitHub (remplace par ton lien)
-    pdf_url = "https://raw.github.com/david-b59/PORTE-FOLIO/blob/main/CV_David_Bauduin_22-01-2025.pdf"
+    pdf_url = "https://raw.githubusercontent.com/david-b59/PORTE-FOLIO/refs/heads/main/app_porte_folio.py"
 
     # Titre de l'application
     st.title("Mon CV")
 
     # Bouton pour télécharger le CV
-    st.markdown(f"📥 [Télécharger mon CV](https://raw.github.com/david-b59/PORTE-FOLIO/blob/main/CV_David_Bauduin_22-01-2025.pdf)")
+    st.markdown(f"📥 [Télécharger mon CV](https://raw.githubusercontent.com/david-b59/PORTE-FOLIO/refs/heads/main/app_porte_folio.py)")
 
     # Afficher le PDF dans une iframe
     st.markdown(f"""
