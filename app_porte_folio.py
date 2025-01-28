@@ -472,7 +472,6 @@ elif tabs == 'Projets':
     elif st.session_state["selected_project"] == "cinema":
         st.write("Projet choisi : Project Recommandation Cinema")
 
-        st.write("Projet choisi : Project Recommandation Cinema")
 
         # CSS pour le design
         css = f'''
