@@ -404,6 +404,9 @@ elif tabs == 'Projets':
                 - Ouvrez le fichier Power BI pour visualiser les indicateurs.
         """, unsafe_allow_html=True)
 
+        # ------------------ Ajout d'un titre pour les slides ------------------
+        st.markdown("<div class='section-title'>🎥 Découvrez les slides du projet</div>", unsafe_allow_html=True)
+        
         # ------------------ Diaporama des images ------------------
 
         # URL de base pour les images sur GitHub
