@@ -413,12 +413,12 @@ elif tabs == 'Projets':
 
         # URL de base pour les images sur GitHub
         repo_url = "https://raw.githubusercontent.com/david-b59/PROJECTS/main/toys-and-models-dashboard/power_bi/screenshots/"
-
+        
         # Liste des noms de tes fichiers (modifie selon tes fichiers réels)
         image_paths = [f"screenshot{i}.png" for i in range(1, 19)]
         
-        # Fonction pour charger une image depuis une URL
-        @st.cache_data  # Cache les données pour éviter de les recharger à chaque interaction
+        # Fonction pour charger les images
+        @st.cache_data  # Cache les images pour éviter des rechargements inutiles
         def load_images(image_paths):
             images = []
             for image_name in image_paths:
@@ -434,18 +434,28 @@ elif tabs == 'Projets':
                     st.warning(f"Impossible de charger l'image {image_name} (HTTP {response.status_code})")
             return images
         
-        # Charger toutes les images
+        # Charger toutes les images une seule fois
         images = load_images(image_paths)
         
-        # Vérifier si des images ont été chargées
-        if images:
-            # Créer un slider pour choisir une image
-            index = st.slider("Choisissez une image", 1, len(images), 1)
-        
-            # Afficher l'image sélectionnée
-            st.image(images[index - 1], caption=f"Image {index}", use_column_width=True)
+        # Vérification si des images sont chargées
+        if not images:
+            st.error("Aucune image valide n'a pu être chargée. Vérifiez vos fichiers ou URLs.")
         else:
-            st.error("Aucune image valide n'a pu être chargée. Vérifiez les URLs ou les fichiers.")
+            # Initialisation du slider dans st.session_state
+            if "slider_index" not in st.session_state:
+                st.session_state.slider_index = 1
+        
+            # Slider pour naviguer entre les images
+            st.session_state.slider_index = st.slider(
+                "Choisissez une image",
+                min_value=1,
+                max_value=len(images),
+                value=st.session_state.slider_index,
+            )
+        
+            # Afficher l'image correspondante
+            index = st.session_state.slider_index
+            st.image(images[index - 1], caption=f"Image {index}", use_column_width=True)
 
         # Footer
         st.markdown(
