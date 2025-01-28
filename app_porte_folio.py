@@ -455,9 +455,7 @@ elif tabs == 'Projets':
 
 
 
-    elif st.session_state["selected_project"] == "cinema":
-        st.write("Projet choisi : Project Recommandation Cinema")
-        # Ajoute ici le contenu de ce projet...
+    
 
 
         # Footer
@@ -471,7 +469,9 @@ elif tabs == 'Projets':
             unsafe_allow_html=True
         )
 
-    elif button_cinema:
+    elif st.session_state["selected_project"] == "cinema":
+        st.write("Projet choisi : Project Recommandation Cinema")
+        # Ajoute ici le contenu de ce projet...
         project_placeholder.empty()  # Efface le contenu précédent
 
         st.write("Projet choisi : Project Recommandation Cinema")
