@@ -282,13 +282,10 @@ elif tabs == 'CV':
     # Lien brut vers ton CV PDF hébergé sur GitHub (remplace par ton lien)
     pdf_url = "https://david-b59.github.io/PORTE-FOLIO/CV_David_Bauduin_22-01-2025.pdf"
 
-    # Titre de l'application
-    st.title("Mon CV")
-
     # Bouton pour télécharger le CV
     st.markdown(f"📥 [Télécharger mon CV](https://github.com/david-b59/PORTE-FOLIO/raw/main/CV_David_Bauduin_22-01-2025.pdf)")
 
-    st.image("")
+    st.image("https://david-b59.github.io/PORTE-FOLIO/cv_image.PNG")
 
            
 
