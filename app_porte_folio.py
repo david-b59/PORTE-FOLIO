@@ -444,7 +444,7 @@ elif tabs == 'Projets':
             index = st.slider("Choisissez une image", 1, len(images), 1)
         
             # Afficher l'image sélectionnée
-            st.image(images[index - 1], caption=f"Image {index}", use_column_width=True)
+            st.image(images[index - 1], caption=f"Image {index}", use_container_width=True)
         else:
             st.error("Aucune image valide n'a pu être chargée. Vérifiez les URLs ou les fichiers.")
 
