@@ -300,17 +300,22 @@ elif tabs == 'Projets':
 
     # Ajouter des boutons dans chaque colonne
     with col1:
-        button_toys = st.button("Toys and Models - Dashboard")
-
+        button_toys = st.button("Toys and Models - Dashboard", key="toys_button")
     with col2:
-        button_cinema = st.button("Project Recommandation Cinema")
+        button_cinema = st.button("Project Recommandation Cinema", key="cinema_button")
+
+    # Initialisation de l'état du projet sélectionné dans st.session_state
+    if "selected_project" not in st.session_state:
+        st.session_state["selected_project"] = None
+
+    # Vérifier lequel des boutons a été cliqué et mettre à jour l'état
+    if button_toys:
+        st.session_state["selected_project"] = "toys"
+    elif button_cinema:
+        st.session_state["selected_project"] = "cinema"
 
     # Contenu initial (avant qu'un bouton soit cliqué)
-    project_placeholder = st.empty()
-
-    # Vérifier lequel des boutons a été cliqué et afficher le projet correspondant
-    if button_toys:
-        project_placeholder.empty()  # Efface le contenu précédent
+    if st.session_state["selected_project"] == "toys":
         st.write("Projet choisi : Toys and Models - Dashboard")
 
         # Couleurs et style CSS
@@ -350,66 +355,7 @@ elif tabs == 'Projets':
         st.markdown('<div class="title">🏎️ Toys and Models Dashboard</div>', unsafe_allow_html=True)
 
         # Description du projet
-        st.markdown('<div class="description">Une entreprise spécialisée dans la vente de modèles et maquettes nous a mandatés pour explorer sa base de données existante, comprenant les <span class="highlight">employés</span>, <span class="highlight">produits</span>, <span class="highlight">commandes</span>, et bien plus encore. L’objectif principal est de créer un tableau de bord <span class="highlight">actualisable quotidiennement</span>, permettant au directeur de suivre les dernières informations pour une gestion efficace.</div>', unsafe_allow_html=True)
-
-        # Section des KPI
-        st.markdown('<div class="section-title">📊 Les KPI Suivis :</div>', unsafe_allow_html=True)
-        st.markdown(
-            """
-            - **Ventes** :  
-                - Nombre de produits vendus par catégorie et par mois.  
-                - Comparaison avec le même mois de l'année précédente et taux de variation.  
-            - **Finances** :  
-                - Chiffre d'affaires des commandes des deux derniers mois par pays.  
-                - Liste des commandes non payées.  
-            - **Logistique** :  
-                - Suivi du stock des 5 produits les plus commandés.  
-            - **Ressources Humaines** :  
-                - Chaque mois, les 2 vendeurs ayant réalisé le plus de chiffres d'affaires.  
-            """, 
-            unsafe_allow_html=True
-        )
-
-        # Fonctionnalités clés
-        st.markdown('<div class="section-title">⚙️ Fonctionnalités clés :</div>', unsafe_allow_html=True)
-        st.markdown(
-            """
-            - Analyse des KPI principaux avec **SQL**.  
-            - Création d’un tableau de bord interactif avec **Power BI**.  
-            - Actualisation quotidienne des données pour une gestion dynamique.  
-            """, 
-            unsafe_allow_html=True
-        )
-
-        # Organisation du projet
-        st.markdown('<div class="section-title">🗂️ Organisation des Fichiers :</div>', unsafe_allow_html=True)
-        st.markdown(
-            """
-            - **Documentation** :  
-                - [Project instructions](https://github.com/david-b59/PROJECTS/blob/main/toys-and-models-dashboard/documentation/project_instructions.pdf)  
-                - [Slides présentation](https://github.com/david-b59/PROJECTS/blob/main/toys-and-models-dashboard/documentation/slides_pr%C3%A9sentation.pdf)  
-            - **Requêtes SQL** :  
-                - [Fichiers SQL](https://github.com/david-b59/PROJECTS/blob/main/toys-and-models-dashboard/queries/kpi_queries.sql)  
-            - **Dashboard Power BI** :  
-                - [Fichier Power BI](https://github.com/david-b59/PROJECTS/blob/main/toys-and-models-dashboard/power_bi/Projet%201.pbix)  
-                - [Screenshots du Dashboard](https://github.com/david-b59/PROJECTS/tree/main/toys-and-models-dashboard/power_bi/screenshots)  
-            """, 
-            unsafe_allow_html=True
-        )
-
-        # Instructions d'utilisation
-        st.markdown('<div class="section-title">📖 Comment utiliser ce projet ?</div>', unsafe_allow_html=True)
-        st.markdown(
-            """
-            - **Étape 1** : Installez et ouvrez les outils requis :  
-                - [MySQL Workbench](https://dev.mysql.com/downloads/workbench/) ou un autre SGBD pour lire les fichiers SQL.  
-                - [Power BI Desktop](https://powerbi.microsoft.com/) pour explorer et interagir avec le tableau de bord.  
-            - **Étape 2** :  
-                - Lisez et exécutez les requêtes SQL pour analyser les KPI.  
-                - Ouvrez le fichier Power BI pour visualiser les indicateurs.  
-            """, 
-            unsafe_allow_html=True
-        )
+        st.markdown('<div class="description">Une entreprise spécialisée dans la vente de modèles et maquettes...</div>', unsafe_allow_html=True)
 
         # URL de base pour les images sur GitHub
         repo_url = "https://raw.githubusercontent.com/david-b59/PROJECTS/main/toys-and-models-dashboard/power_bi/screenshots/"
@@ -444,7 +390,7 @@ elif tabs == 'Projets':
             # Initialisation de l'index dans st.session_state
             if "index" not in st.session_state:
                 st.session_state.index = 0
-        
+
             # Créer des boutons pour naviguer
             col1, col2, col3 = st.columns([1, 2, 1])
             with col1:
@@ -457,6 +403,11 @@ elif tabs == 'Projets':
             # Afficher l'image actuelle
             index = st.session_state.index
             st.image(images[index], caption=f"Image {index + 1}", use_column_width=True)
+
+    elif st.session_state["selected_project"] == "cinema":
+        st.write("Projet choisi : Project Recommandation Cinema")
+        # Ajoute ici le contenu de ce projet...
+
 
         # Footer
         st.markdown(
