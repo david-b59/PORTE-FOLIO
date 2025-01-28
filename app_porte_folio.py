@@ -300,7 +300,7 @@ elif tabs == 'Projets':
         button_toys = st.button("Toys and Models - Dashboard")
 
     with col2:
-        button_cinema = st.button("Project Recommendation Cinema")
+        button_cinema = st.button("Project Recommandation Cinema")
 
     # Contenu initial (avant qu'un bouton soit cliqué)
     project_placeholder = st.empty()
@@ -422,7 +422,7 @@ elif tabs == 'Projets':
     elif button_cinema:
         project_placeholder.empty()  # Efface le contenu précédent
 
-        st.write("Projet choisi : Project Recommendation Cinema")
+        st.write("Projet choisi : Project Recommandation Cinema")
 
         # CSS pour le design
         css = f'''
