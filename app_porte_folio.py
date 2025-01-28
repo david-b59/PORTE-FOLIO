@@ -4,6 +4,9 @@ import numpy as np
 from st_on_hover_tabs import on_hover_tabs
 from pathlib import Path
 import base64
+from PIL import Image
+import requests
+from io import BytesIO
 
 
 st.set_page_config(layout="wide")
@@ -407,6 +410,29 @@ elif tabs == 'Projets':
             """, 
             unsafe_allow_html=True
         )
+
+        # slide image projet
+        # URL de ton dépôt GitHub contenant les images
+        repo_url = "https://github.com/david-b59/PROJECTS/tree/main/toys-and-models-dashboard/power_bi/screenshots/"
+        
+        # Liste des noms de tes images
+        image_paths = [f"image_{i}.png" for i in range(1, 19)]
+        
+        # Fonction pour charger l'image depuis GitHub
+        def load_image(image_name):
+            image_url = f"{repo_url}{image_name}"
+            response = requests.get(image_url)
+            img = Image.open(BytesIO(response.content))
+            return img
+        
+        # Charger toutes les images
+        images = [load_image(img) for img in image_paths]
+        
+        # Slider pour choisir l'image
+        index = st.slider("Choisissez une image", 1, len(images), 1)
+        
+        # Afficher l'image sélectionnée
+        st.image(images[index - 1], caption=f"Image {index}", use_column_width=True)
 
         # Footer
         st.markdown(
