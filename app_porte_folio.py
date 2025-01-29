@@ -444,7 +444,7 @@ elif tabs == 'Projets':
                 st.session_state.index = 0
 
             # Créer des boutons pour naviguer
-            col1, col2, col3 = st.columns([1, 2, 1])
+            col1, col2, col3 = st.columns([1, 3, 1])
             with col1:
                 if st.button("⬅️ Précédent"):
                     st.session_state.index = (st.session_state.index - 1) % len(images)
