@@ -519,7 +519,7 @@ elif tabs == 'Projets':
 
         # Lien vers le projet
         st.markdown(
-            '<div class="description">Lien vers le projet fini : <a href="https://project-recommandation-cinema.streamlit.app/" target="_blank">https://project-recommandation-cinema.streamlit.app/</a></div>',
+            '<div class="description">Lien vers le projet fini : <a href="https://project-recommandation-cinema.streamlit.app/" target="_blank">https://projet-recommandation-cinema.streamlit.app/</a></div>',
             unsafe_allow_html=True
         )
 
