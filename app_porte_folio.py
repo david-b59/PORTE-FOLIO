@@ -76,7 +76,7 @@ css = f'''
     }}
     /* S'assurer que la lisibilité est bonne sur mobile */
     @media (max-width: 768px) {{
-        h1, h2, h3, h4, h5, h6, p, span {{
+        h1, h2, h3, h4, h5, h6, div, p, span {{
             color: black !important;
         }}
     }}
