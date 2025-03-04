@@ -304,7 +304,7 @@ elif tabs == 'Projets':
     with col2:
         button_telecom = st.button("telecom-attrition - dashboard", key="telecom_button")
     with col3:
-        button_telecom = st.button("Cyclistique - dashboard", key="Cyclistique_button")
+        button_cyclistique = st.button("Cyclistique - dashboard", key="Cyclistique_button")
     with col4:
         button_cinema = st.button("Project Recommandation Cinema", key="cinema_button")
 
@@ -317,7 +317,7 @@ elif tabs == 'Projets':
         st.session_state["selected_project"] = "toys"
     elif button_telecom:
         st.session_state["selected_project"] = "telecom"
-    elif button_telecom:
+    elif button_cyclistique:
         st.session_state["selected_project"] = "cyclistique"
     elif button_cinema:
         st.session_state["selected_project"] = "cinema"
