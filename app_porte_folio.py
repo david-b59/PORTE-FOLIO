@@ -74,7 +74,12 @@ css = f'''
             display: none;
         }}
     }}
-
+    /* S'assurer que la lisibilité est bonne sur mobile */
+    @media (max-width: 768px) {{
+        h1, h2, h3, h4, h5, h6, p, div, span {{
+            color: black !important;
+        }}
+    }}
     @media(max-width: 272px) {{
         section[data-testid='stSidebar'] > div {{
             width: 15rem;
