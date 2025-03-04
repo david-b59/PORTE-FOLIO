@@ -568,7 +568,7 @@ elif tabs == 'Projets':
         repo_url = "https://raw.githubusercontent.com/david-b59/PROJECTS/main/telecom-attrition-dashboard/screenshots/"
         
         # Liste des noms de fichiers screenshots (ici, on suppose 10 images)
-        image_paths = [f"screen{i}.PNG" for i in range(1, 11)]
+        image_paths = [f"screen{i}.PNG" for i in range(1, 6)]
         
         # Fonction pour charger les images depuis GitHub
         @st.cache_data
