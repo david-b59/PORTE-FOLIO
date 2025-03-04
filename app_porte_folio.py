@@ -296,12 +296,14 @@ elif tabs == 'Projets':
     st.write("Découvrez mes projets réalisés.")
     
     # Créer des colonnes pour les boutons
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns(3)
 
     # Ajouter des boutons dans chaque colonne
     with col1:
         button_toys = st.button("Toys and Models - Dashboard", key="toys_button")
     with col2:
+        button_telecom = st.button("telecom-attrition - dashboard", key="toys_button")
+    with col3:
         button_cinema = st.button("Project Recommandation Cinema", key="cinema_button")
 
     # Initialisation de l'état du projet sélectionné dans st.session_state
@@ -311,6 +313,8 @@ elif tabs == 'Projets':
     # Vérifier lequel des boutons a été cliqué et mettre à jour l'état
     if button_toys:
         st.session_state["selected_project"] = "toys"
+    elif button_telecom:
+        st.session_state["selected_project"] = "telecom"
     elif button_cinema:
         st.session_state["selected_project"] = "cinema"
 
@@ -472,6 +476,153 @@ elif tabs == 'Projets':
             unsafe_allow_html=True
         )
 
+    elif st.session_state["selected_project"] == "telecom":
+
+        # Affichage du projet
+        st.write("Projet choisi : Dashboard Business Case – Churn dans les Télécoms")
+        
+        # Couleurs et style CSS
+        st.markdown(
+            """
+            <style>
+            .title {
+                font-size: 2rem;
+                color: #3B3B98;
+                font-weight: bold;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .section-title {
+                font-size: 1.5rem;
+                color: #182C61;
+                font-weight: bold;
+                margin-bottom: 10px;
+                margin-top: 30px;
+            }
+            .description {
+                font-size: 1rem;
+                color: #333333;
+                text-align: justify;
+                margin-bottom: 20px;
+            }
+            .highlight {
+                color: #40739E;
+                font-weight: bold;
+            }
+            </style>
+            """, 
+            unsafe_allow_html=True
+        )
+        
+        # Titre principal
+        st.markdown('<div class="title">📊 Dashboard Business Case – Churn dans les Télécoms</div>', unsafe_allow_html=True)
+        
+        # Description du projet
+        st.markdown('<div class="description">Ce dashboard interactif a été réalisé en une journée dans le cadre d’un défi interne. Il traite du churn (résiliation) dans le secteur des télécoms pour le client Pinky, qui souhaite identifier les clients à risque afin de prévenir leur résiliation.</div>', unsafe_allow_html=True)
+        
+        # Contenu du Dashboard
+        st.markdown('<div class="section-title">📊 Contenu du Dashboard :</div>', unsafe_allow_html=True)
+        st.markdown("""
+        - **Exploration des données** :  
+            - Analyse descriptive des variables et identification des facteurs influençant la résiliation.
+        - **Visualisations interactives** :  
+            - Graphiques clairs et intuitifs pour visualiser les tendances et comparer les comportements clients.
+        - **Modélisation du churn** :  
+            - Proposition d’un scoring pour identifier les clients à risque, facilitant ainsi les actions commerciales.
+        """, unsafe_allow_html=True)
+        
+        # Fonctionnalités clés
+        st.markdown('<div class="section-title">⚙️ Fonctionnalités clés :</div>', unsafe_allow_html=True)
+        st.markdown("""
+        - Analyse des données à partir d’un **fichier CSV** quasiment nettoyé.
+        - Transformations et modifications réalisées directement via **Power Query**.
+        - Création d’un tableau de bord interactif avec **Power BI**.
+        - Actualisation quotidienne des données pour une gestion dynamique.
+        """, unsafe_allow_html=True)
+        
+        # Organisation des Fichiers
+        st.markdown('<div class="section-title">🗂️ Organisation des Fichiers :</div>', unsafe_allow_html=True)
+        st.markdown("""
+        - **Documentation** :  
+            - [PDF Explication du projet](LIEN_A_INDIQUER)
+        - **Fichier CSV** :  
+            - [Données source](LIEN_A_INDIQUER)
+        - **Dashboard Power BI** :  
+            - [Fichier Power BI](LIEN_A_INDIQUER)
+        - **Screenshots** :  
+            - [Screenshots du Dashboard](LIEN_A_INDIQUER)
+        """, unsafe_allow_html=True)
+        
+        # Instructions d'utilisation
+        st.markdown('<div class="section-title">📖 Comment utiliser ce projet ?</div>', unsafe_allow_html=True)
+        st.markdown("""
+        - **Étape 1** : Clonez le dépôt GitHub et ouvrez le projet.
+        - **Étape 2** : Consultez le fichier CSV et la documentation PDF pour comprendre les transformations appliquées.
+        - **Étape 3** : Ouvrez le fichier Power BI pour explorer le dashboard interactif.
+        """, unsafe_allow_html=True)
+        
+        # ------------------ Ajout d'un titre pour les screenshots ------------------
+        st.markdown("<div class='section-title'>🖼️ Découvrez les screenshots du dashboard</div>", unsafe_allow_html=True)
+        
+        # URL de base pour les images sur GitHub (à adapter ultérieurement)
+        repo_url = "https://raw.githubusercontent.com/david-b59/PROJECTS/main/telecom-attrition-dashboard/screenshots/"
+        
+        # Liste des noms de fichiers screenshots (ici, on suppose 10 images)
+        image_paths = [f"screen{i}.png" for i in range(1, 11)]
+        
+        # Fonction pour charger les images depuis GitHub
+        @st.cache_data
+        def load_images(image_paths):
+            images = []
+            for image_name in image_paths:
+                image_url = f"{repo_url}{image_name}"
+                response = requests.get(image_url)
+                if response.status_code == 200:
+                    try:
+                        img = Image.open(BytesIO(response.content))
+                        images.append(img)
+                    except Exception as e:
+                        st.warning(f"Erreur lors du chargement de l'image {image_name}: {e}")
+                else:
+                    st.warning(f"Impossible de charger l'image {image_name} (HTTP {response.status_code})")
+            return images
+        
+        # Charger toutes les images
+        images = load_images(image_paths)
+        
+        # Vérifier si des images sont chargées
+        if not images:
+            st.error("Aucune image valide n'a pu être chargée.")
+        else:
+            # Initialisation de l'index dans st.session_state
+            if "index" not in st.session_state:
+                st.session_state.index = 0
+        
+            # Boutons de navigation
+            col1, col2, col3 = st.columns([1, 3, 1])
+            with col1:
+                if st.button("⬅️ Précédent"):
+                    st.session_state.index = (st.session_state.index - 1) % len(images)
+            with col3:
+                if st.button("➡️ Suivant"):
+                    st.session_state.index = (st.session_state.index + 1) % len(images)
+            
+            # Affichage de l'image courante
+            index = st.session_state.index
+            st.image(images[index], caption=f"Image {index + 1}", use_container_width=True)
+        
+        # Footer
+        st.markdown(
+            """
+            <hr>
+            <div style="text-align: center; color: #182C61; font-size: 0.9rem;">
+                Réalisé par [Bauduin David].
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
+    
     elif st.session_state["selected_project"] == "cinema":
         st.write("Projet choisi : Project Recommandation Cinema")
 
