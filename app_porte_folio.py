@@ -565,7 +565,7 @@ elif tabs == 'Projets':
         st.markdown("<div class='section-title'>🖼️ Découvrez les screenshots du dashboard</div>", unsafe_allow_html=True)
         
         # URL de base pour les images sur GitHub (à adapter ultérieurement)
-        repo_url = "https://raw.githubusercontent.com/david-b59/PROJECTS/main/telecom-attrition-dashboard/screenshots/"
+        repo_url = "https://raw.githubusercontent.com/david-b59/PROJECTS/main/telecom-attrition-dashboard/power_bi/screenshots/"
         
         # Liste des noms de fichiers screenshots (ici, on suppose 10 images)
         image_paths = [f"screen{i}.PNG" for i in range(1, 6)]
