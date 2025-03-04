@@ -302,7 +302,7 @@ elif tabs == 'Projets':
     with col1:
         button_toys = st.button("Toys and Models - Dashboard", key="toys_button")
     with col2:
-        button_telecom = st.button("telecom-attrition - dashboard", key="toys_button")
+        button_telecom = st.button("telecom-attrition - dashboard", key="telecom_button")
     with col3:
         button_cinema = st.button("Project Recommandation Cinema", key="cinema_button")
 
