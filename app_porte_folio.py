@@ -571,7 +571,7 @@ elif tabs == 'Projets':
         image_paths = [f"screen{i}.PNG" for i in range(1, 6)]
         
         # Fonction pour charger les images depuis GitHub
-        @st.cache_data
+        # @st.cache_data
         def load_images(image_paths):
             images = []
             for image_name in image_paths:
