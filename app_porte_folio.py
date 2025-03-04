@@ -544,13 +544,13 @@ elif tabs == 'Projets':
         st.markdown('<div class="section-title">🗂️ Organisation des Fichiers :</div>', unsafe_allow_html=True)
         st.markdown("""
         - **Documentation** :  
-            - [PDF Explication du projet](LIEN_A_INDIQUER)
+            - [PDF Explication du projet](https://github.com/david-b59/PROJECTS/blob/main/telecom-attrition-dashboard/documentation/Churn%20dans%20les%20t%C3%A9l%C3%A9coms.pdf)
         - **Fichier CSV** :  
             - [Données source](LIEN_A_INDIQUER)
         - **Dashboard Power BI** :  
-            - [Fichier Power BI](LIEN_A_INDIQUER)
+            - [Fichier Power BI](https://github.com/david-b59/PROJECTS/blob/main/telecom-attrition-dashboard/power_bi/telecom.pbix)
         - **Screenshots** :  
-            - [Screenshots du Dashboard](LIEN_A_INDIQUER)
+            - [Screenshots du Dashboard](https://github.com/david-b59/PROJECTS/tree/main/telecom-attrition-dashboard/power_bi/screenshots)
         """, unsafe_allow_html=True)
         
         # Instructions d'utilisation
@@ -571,7 +571,7 @@ elif tabs == 'Projets':
         image_paths = [f"screen{i}.PNG" for i in range(1, 6)]
         
         # Fonction pour charger les images depuis GitHub
-        # @st.cache_data
+        @st.cache_data
         def load_images(image_paths):
             images = []
             for image_name in image_paths:
