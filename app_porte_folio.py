@@ -285,7 +285,7 @@ elif tabs == 'CV':
     # Bouton pour télécharger le CV
     st.markdown(f"📥 [Télécharger mon CV](https://github.com/david-b59/PORTE-FOLIO/raw/main/CV_David_Bauduin_23022025.pdf)")
 
-    st.image("https://david-b59.github.io/PORTE-FOLIO/cv_image_01.PNG")
+    st.image("https://david-b59.github.io/PORTE-FOLIO/CV_image.PNG")
 
            
 
