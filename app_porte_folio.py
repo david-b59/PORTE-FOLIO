@@ -79,6 +79,29 @@ css = f'''
         h1, h2, h3, h4, h5, h6, div, p, span {{
             color: black !important;
         }}
+        /* Rétablir la couleur d'origine pour les boutons */
+    button, 
+    .stButton button, 
+    .stDownloadButton button, 
+    .st-emotion-cache button {{  
+        color: white !important;  /* Rétablir la couleur d'origine */
+        background-color: transparent !important; /* Supprimer le fond noir */
+        border: none !important;  /* Supprimer tout contour */
+    }}
+
+    /* Rétablir l'affichage normal des icônes et flèches */
+    .st-emotion-cache svg,  
+    .st-emotion-cache i {{
+        color: white !important;  
+    }}
+
+    /* Corriger les blocs de code (code copier-coller) */
+    pre, code {{
+        color: white !important; /* Couleur claire pour le texte */
+        background-color: #1e1e1e !important; /* Fond adapté type VS Code */
+        padding: 10px;
+        border-radius: 5px;
+    }}
     }}
     @media(max-width: 272px) {{
         section[data-testid='stSidebar'] > div {{
