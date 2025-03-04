@@ -733,13 +733,13 @@ elif tabs == 'Projets':
         st.markdown(
             """
             - **Documentation** :  
-              - Présentation (PDF) exposant la méthodologie, les insights clés et les recommandations.
+              - [Présentation (PDF)](https://github.com/david-b59/PROJECTS/tree/main/Cyclistic-ashboard/documentation) exposant la méthodologie, les insights clés et les recommandations.
             - **Notebook Google Colab** :  
-              - [Fichier .ipynb](LIEN_VERS_VOTRE_NOTEBOOK_SUR_GITHUB) présentant le nettoyage et l’analyse exploratoire.
+              - [Fichier .ipynb](https://github.com/david-b59/PROJECTS/tree/main/Cyclistic-ashboard/notebook) présentant le nettoyage et l’analyse exploratoire.
             - **Fichier Power BI** :  
-              - [Fichier .pbit ou .pbix](LIEN_VERS_VOTRE_FICHIER_POWER_BI) pour visualiser et interagir avec le dashboard.
+              - [Fichier .pbit ou .pbix](https://github.com/david-b59/PROJECTS/blob/main/Cyclistic-ashboard/power_bi/certification-blanc-david.pbit) pour visualiser et interagir avec le dashboard.
             - **Screenshots** :  
-              - Captures d’écran du tableau de bord Power BI disponibles dans le dossier `power_bi/screenshots`.
+              - [Captures d’écran](https://github.com/david-b59/PROJECTS/tree/main/Cyclistic-ashboard/power_bi/screenshots) du tableau de bord Power BI disponibles dans le dossier `power_bi/screenshots`.
             """,
             unsafe_allow_html=True
         )
