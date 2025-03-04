@@ -296,7 +296,7 @@ elif tabs == 'Projets':
     st.write("Découvrez mes projets réalisés.")
     
     # Créer des colonnes pour les boutons
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3, col4 = st.columns(4)
 
     # Ajouter des boutons dans chaque colonne
     with col1:
@@ -304,6 +304,8 @@ elif tabs == 'Projets':
     with col2:
         button_telecom = st.button("telecom-attrition - dashboard", key="telecom_button")
     with col3:
+        button_telecom = st.button("Cyclistique - dashboard", key="Cyclistique_button")
+    with col4:
         button_cinema = st.button("Project Recommandation Cinema", key="cinema_button")
 
     # Initialisation de l'état du projet sélectionné dans st.session_state
@@ -315,6 +317,8 @@ elif tabs == 'Projets':
         st.session_state["selected_project"] = "toys"
     elif button_telecom:
         st.session_state["selected_project"] = "telecom"
+    elif button_telecom:
+        st.session_state["selected_project"] = "cyclistique"
     elif button_cinema:
         st.session_state["selected_project"] = "cinema"
 
@@ -612,6 +616,212 @@ elif tabs == 'Projets':
             st.image(images[index], caption=f"Image {index + 1}", use_container_width=True)
         
         # Footer
+        st.markdown(
+            """
+            <hr>
+            <div style="text-align: center; color: #182C61; font-size: 0.9rem;">
+                Réalisé par [Bauduin David].
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
+
+    elif st.session_state["selected_project"] == "cyclistique":
+
+        # ------------------ 1) Titre et Style ------------------
+        st.write("Projet choisi : Dashboard Cyclistic – Analyse et Visualisation des Données 2021")
+        
+        # Couleurs et style CSS
+        st.markdown(
+            """
+            <style>
+            .title {
+                font-size: 2rem;
+                color: #3B3B98;
+                font-weight: bold;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .section-title {
+                font-size: 1.5rem;
+                color: #182C61;
+                font-weight: bold;
+                margin-bottom: 10px;
+                margin-top: 30px;
+            }
+            .description {
+                font-size: 1rem;
+                color: #333333;
+                text-align: justify;
+                margin-bottom: 20px;
+            }
+            .highlight {
+                color: #40739E;
+                font-weight: bold;
+            }
+            </style>
+            """, 
+            unsafe_allow_html=True
+        )
+        
+        # Titre principal
+        st.markdown('<div class="title">🚴‍♀️ Dashboard Cyclistic – Analyse et Visualisation des Données 2021</div>', unsafe_allow_html=True)
+        
+        # ------------------ 2) Description Générale ------------------
+        st.markdown(
+            """
+            <div class="description">
+            Ce projet est le fruit d'une journée de travail intensif dans le cadre d'un certificat blanc. 
+            Il s'inscrit dans le cadre d'une étude de cas business visant à analyser et visualiser les données 
+            d'utilisation des vélos de Cyclistic à Chicago pour proposer des recommandations stratégiques.
+            </div>
+            """, 
+            unsafe_allow_html=True
+        )
+        
+        # ------------------ 3) Contexte ------------------
+        st.markdown('<div class="section-title">🏙️ Contexte :</div>', unsafe_allow_html=True)
+        st.markdown(
+            """
+            Cyclistic est une entreprise de partage de vélos à Chicago disposant d'une flotte de 5 824 vélos 
+            répartis sur 692 stations. Le service est accessible via deux types de clientèle :
+            
+            - **Cyclistes occasionnels** : Pass pour une course ou une journée complète.
+            - **Membres annuels** : Abonnement mensuel ou annuel.
+            
+            L’objectif est de comprendre comment ces deux groupes utilisent les vélos, afin de convertir 
+            davantage de cyclistes occasionnels en membres annuels et de repérer les emplacements stratégiques 
+            pour de nouvelles stations.
+            """,
+            unsafe_allow_html=True
+        )
+        
+        # ------------------ 4) Objectifs de l'Étude ------------------
+        st.markdown('<div class="section-title">🎯 Objectifs de l’Étude :</div>', unsafe_allow_html=True)
+        st.markdown(
+            """
+            1. **Usage différencié** : Comment les membres annuels et les cyclistes occasionnels utilisent-ils 
+               différemment les vélos ?
+            2. **Conversion** : Identifier les leviers pour convertir les cyclistes occasionnels en membres annuels.
+            3. **Stratégie digitale** : Exploiter les médias numériques pour améliorer le taux de conversion.
+            4. **Nouvelles stations** : Déterminer les emplacements idéaux pour implanter de nouvelles stations, 
+               en fonction des habitudes d’utilisation et de la fréquentation.
+            """,
+            unsafe_allow_html=True
+        )
+        
+        # ------------------ 5) Data & Méthodologie ------------------
+        st.markdown('<div class="section-title">🔎 Data & Méthodologie :</div>', unsafe_allow_html=True)
+        st.markdown(
+            """
+            - **Collecte des Données** :  
+              - Fichiers CSV publics provenant de Divvy Tripdata (serveur AWS), couvrant l’année 2021.
+            - **Pré-traitement & Traitement** :  
+              - Nettoyage et suppression des trajets problématiques.  
+              - Ajout de colonnes (durée, heure de départ, etc.) pour enrichir l’analyse.  
+              - Code de prétraitement et d’analyse dans un notebook <em>Google Colab</em> (voir le dépôt GitHub).
+            - **Analyse et Visualisation** :  
+              - Création d’un dataset propre pour <strong>Power BI</strong>.  
+              - Conception d’un tableau de bord interactif avec cartes géographiques et tableaux croisés dynamiques.
+            """,
+            unsafe_allow_html=True
+        )
+        
+        # ------------------ 6) Livrables ------------------
+        st.markdown('<div class="section-title">📂 Livrables :</div>', unsafe_allow_html=True)
+        st.markdown(
+            """
+            - **Documentation** :  
+              - Présentation (PDF) exposant la méthodologie, les insights clés et les recommandations.
+            - **Notebook Google Colab** :  
+              - [Fichier .ipynb](LIEN_VERS_VOTRE_NOTEBOOK_SUR_GITHUB) présentant le nettoyage et l’analyse exploratoire.
+            - **Fichier Power BI** :  
+              - [Fichier .pbit ou .pbix](LIEN_VERS_VOTRE_FICHIER_POWER_BI) pour visualiser et interagir avec le dashboard.
+            - **Screenshots** :  
+              - Captures d’écran du tableau de bord Power BI disponibles dans le dossier `power_bi/screenshots`.
+            """,
+            unsafe_allow_html=True
+        )
+        
+        # ------------------ 7) Instructions d’Utilisation ------------------
+        st.markdown('<div class="section-title">⚙️ Instructions d’Utilisation :</div>', unsafe_allow_html=True)
+        st.markdown(
+            """
+            1. **Cloner le Dépôt** :  
+               ```bash
+               git clone https://github.com/david-b59/PROJECTS/tree/main/Cyclistic-dashboard
+               ```
+            2. **Analyse Exploratoire** :  
+               - Ouvrez le notebook `.ipynb` dans Google Colab ou Jupyter pour examiner le processus de nettoyage et d’analyse.
+            3. **Préparer le Dashboard Power BI** :  
+               - Ouvrez le fichier `.pbit` ou `.pbix` dans Power BI Desktop.  
+               - Si besoin, spécifiez la source de données (fichier CSV nettoyé) lorsque vous y êtes invité.
+            4. **Visualiser le Dashboard** :  
+               - Une fois le fichier Power BI chargé, interagissez avec les graphiques et consultez les différentes vues (cartes, tableaux croisés, etc.).
+            """,
+            unsafe_allow_html=True
+        )
+        
+        # ------------------ 8) Diaporama des Screenshots ------------------
+        st.markdown('<div class="section-title">🖼️ Aperçu du Dashboard (Screenshots)</div>', unsafe_allow_html=True)
+        
+        # URL de base pour les images sur GitHub
+        repo_url = "https://raw.githubusercontent.com/david-b59/PROJECTS/main/Cyclistic-ashboard/power_bi/screenshots/"
+        
+        # Adaptez le nombre d'images et leur nom en fonction de votre dépôt
+        # Par exemple, si vous avez 7 captures nommées screen1.PNG, screen2.PNG, ...
+        image_paths = [f"screen{i}.PNG" for i in range(1, 8)]
+        
+        @st.cache_data
+        def load_images(image_paths):
+            images = []
+            for image_name in image_paths:
+                image_url = f"{repo_url}{image_name}"
+                response = requests.get(image_url)
+                if response.status_code == 200:
+                    try:
+                        img = Image.open(BytesIO(response.content))
+                        images.append(img)
+                    except Exception as e:
+                        st.warning(f"Erreur lors du chargement de l'image {image_name}: {e}")
+                else:
+                    st.warning(f"Impossible de charger l'image {image_name} (HTTP {response.status_code})")
+            return images
+        
+        images = load_images(image_paths)
+        
+        if not images:
+            st.error("Aucune image valide n'a pu être chargée.")
+        else:
+            if "index_cyclistic" not in st.session_state:
+                st.session_state.index_cyclistic = 0
+        
+            col1, col2, col3 = st.columns([1, 3, 1])
+            with col1:
+                if st.button("⬅️ Précédent", key="prev_cyclistic"):
+                    st.session_state.index_cyclistic = (st.session_state.index_cyclistic - 1) % len(images)
+            with col3:
+                if st.button("➡️ Suivant", key="next_cyclistic"):
+                    st.session_state.index_cyclistic = (st.session_state.index_cyclistic + 1) % len(images)
+        
+            index = st.session_state.index_cyclistic
+            st.image(images[index], caption=f"Image {index + 1}", use_container_width=True)
+        
+        # ------------------ 9) Conclusion ------------------
+        st.markdown('<div class="section-title">✅ Conclusion</div>', unsafe_allow_html=True)
+        st.markdown(
+            """
+            Ce projet a permis de mettre en évidence les différences d'utilisation des vélos entre les cyclistes 
+            occasionnels et les membres annuels. Les insights clés issus de cette analyse fournissent des pistes 
+            pour augmenter le taux de conversion vers l’abonnement annuel, ainsi que des recommandations sur 
+            l’implantation de nouvelles stations. Le dashboard interactif garantit une approche claire et 
+            accessible pour tous les acteurs impliqués.
+            """,
+            unsafe_allow_html=True
+        )
+        
+        # ------------------ 10) Footer ------------------
         st.markdown(
             """
             <hr>
