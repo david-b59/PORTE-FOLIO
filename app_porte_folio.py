@@ -109,14 +109,14 @@ css = f'''
 
     /* Corriger les blocs de code (code copier-coller) */
     pre, code {{
-        color: white !important; /* Texte vert clair pour bon contraste */
-        
+        color: #00ff00 !important;  /* Texte vert clair */
+        background-color: #2a2a2a !important; /* Fond gris foncé */
         font-family: 'Courier New', Courier, monospace !important;
         padding: 10px;
         border-radius: 5px;
         display: block;
-        overflow-x: auto; /* Gérer le débordement pour le scroll */
-        white-space: pre-wrap; /* Empêcher le texte de sortir de l'écran */
+        overflow-x: auto;  /* Ajoute un scroll horizontal si nécessaire */
+        white-space: pre-wrap;  /* Évite le débordement du texte */
     }}
     }}
     
@@ -794,9 +794,7 @@ elif tabs == 'Projets':
         st.markdown(
             """
             1. **Cloner le Dépôt** :  
-               ```bash
-               git clone https://github.com/david-b59/PROJECTS/tree/main/Cyclistic-dashboard
-               ```
+               <pre><code class="language-bash">git clone https://github.com/david-b59/PROJECTS/tree/main/Cyclistic-dashboard</code></pre>
             2. **Analyse Exploratoire** :  
                - Ouvrez le notebook `.ipynb` dans Google Colab ou Jupyter pour examiner le processus de nettoyage et d’analyse.
             3. **Préparer le Dashboard Power BI** :  
