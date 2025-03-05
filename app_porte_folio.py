@@ -109,15 +109,15 @@ css = f'''
 
     /* Corriger les blocs de code (code copier-coller) */
     pre, code {{
-        color: white !important;  /* Texte vert clair */
-        
+        color: #00ff00 !important;  /* Texte vert clair */
         background-color: #2a2a2a !important; /* Fond gris foncé */
         font-family: 'Courier New', Courier, monospace !important;
-        padding: 10px;
-        border-radius: 5px;
-        display: block;
-        overflow-x: auto;  /* Ajoute un scroll horizontal si nécessaire */
-        white-space: pre-wrap;  /* Évite le débordement du texte */
+        padding: 12px !important;
+        border-radius: 6px !important;
+        display: block !important;
+        overflow-x: auto !important;  /* Permettre le scroll horizontal */
+        white-space: pre-wrap !important;  /* Empêcher le débordement */
+        word-wrap: break-word !important;  /* Permettre la coupure des mots */
     }}
     }}
     
