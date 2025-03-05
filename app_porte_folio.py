@@ -109,7 +109,7 @@ css = f'''
 
     /* Corriger les blocs de code (code copier-coller) */
     pre, code {{
-        color: #2a2a2a !important; /* Texte vert clair pour bon contraste */
+        color: white !important; /* Texte vert clair pour bon contraste */
         
         font-family: 'Courier New', Courier, monospace !important;
         padding: 10px;
