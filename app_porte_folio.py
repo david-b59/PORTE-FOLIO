@@ -74,6 +74,31 @@ css = f'''
             display: none;
         }}
     }}
+
+    button, 
+    .stButton button, 
+    .stDownloadButton button, 
+    .st-emotion-cache button {{  
+        color: white !important;  /* Texte blanc pour contraste */
+        background: linear-gradient(135deg, #2C3E50, #4CA1AF) !important; /* Dégradé bleu-gris pro */
+        border: 2px solid #1B2A41 !important; /* Bordure gris foncé */
+        padding: 12px 18px !important; /* Agrandir les boutons */
+        border-radius: 8px !important; /* Coins arrondis */
+        font-size: 16px !important; /* Texte lisible */
+        font-weight: bold !important; /* Texte en gras */
+        cursor: pointer !important; /* Curseur interactif */
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3) !important; /* Ombre pour effet 3D */
+        transition: all 0.3s ease-in-out !important; /* Animation fluide */
+    }}
+    /* Ajuster les boutons au survol */
+    button:hover, 
+    .stButton button:hover, 
+    .stDownloadButton button:hover, 
+    .st-emotion-cache button:hover {{  
+        background: linear-gradient(135deg, #1B2A41, #3B6978) !important; /* Dégradé plus foncé au survol */
+        transform: scale(1.07) !important; /* Effet zoom léger */
+        border-color: #16222A !important;
+    }}
     
     /* S'assurer que la lisibilité est bonne sur mobile */
     @media (max-width: 768px) {{
