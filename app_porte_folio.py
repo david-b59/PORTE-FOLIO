@@ -99,6 +99,9 @@ css = f'''
         transform: scale(1.07) !important; /* Effet zoom léger */
         border-color: #16222A !important;
     }}
+    .st-emotion-cache-1i55tjj {{
+        display: none !important; /* Cache l'élément sur écran large */
+    }}
     
     /* S'assurer que la lisibilité est bonne sur mobile */
     @media (max-width: 768px) {{
