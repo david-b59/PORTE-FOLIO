@@ -154,7 +154,7 @@ css = f'''
     
     @media(max-width: 272px) {{
         section[data-testid='stSidebar'] > div {{
-            width: 14rem;
+            width: 10rem;
         }}
 
     }}
