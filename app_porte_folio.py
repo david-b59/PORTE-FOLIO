@@ -74,6 +74,7 @@ css = f'''
             display: none;
         }}
     }}
+    
     /* S'assurer que la lisibilité est bonne sur mobile */
     @media (max-width: 768px) {{
         h1, h2, h3, h4, h5, h6, div, p, span {{
@@ -84,9 +85,20 @@ css = f'''
     .stButton button, 
     .stDownloadButton button, 
     .st-emotion-cache button {{  
-        color: white !important;  /* Rétablir la couleur d'origine */
-        background-color: transparent !important; /* Supprimer le fond noir */
-        border: none !important;  /* Supprimer tout contour */
+        color: white !important;  /* Texte blanc */
+        background-color: #007bff !important; /* Bleu standard pour boutons */
+        border: 2px solid #0056b3 !important; /* Bordure plus foncée */
+        padding: 8px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+    }}
+    /* Ajuster les boutons au survol */
+    button:hover, 
+    .stButton button:hover, 
+    .stDownloadButton button:hover, 
+    .st-emotion-cache button:hover {{  
+        background-color: #0056b3 !important; /* Bleu foncé au survol */
+        border-color: #004494 !important;
     }}
 
     /* Rétablir l'affichage normal des icônes et flèches */
@@ -97,12 +109,17 @@ css = f'''
 
     /* Corriger les blocs de code (code copier-coller) */
     pre, code {{
-        color: white !important; /* Couleur claire pour le texte */
-        background-color: #1e1e1e !important; /* Fond adapté type VS Code */
+        color: #00ff00 !important; /* Texte vert clair pour bon contraste */
+        background-color: #2a2a2a !important; /* Fond gris foncé au lieu de noir */
+        font-family: 'Courier New', Courier, monospace !important;
         padding: 10px;
         border-radius: 5px;
+        display: block;
+        overflow-x: auto; /* Gérer le débordement pour le scroll */
+        white-space: pre-wrap; /* Empêcher le texte de sortir de l'écran */
     }}
     }}
+    
     @media(max-width: 272px) {{
         section[data-testid='stSidebar'] > div {{
             width: 15rem;
