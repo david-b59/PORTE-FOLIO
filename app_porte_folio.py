@@ -86,19 +86,23 @@ css = f'''
     .stDownloadButton button, 
     .st-emotion-cache button {{  
         color: white !important;  /* Texte blanc */
-        background-color: #007bff !important; /* Bleu standard pour boutons */
-        border: 2px solid #0056b3 !important; /* Bordure plus foncée */
-        padding: 8px 12px;
-        border-radius: 5px;
-        cursor: pointer;
+        background-color: linear-gradient(135deg, #ff7eb3, #ff758c) !important; /* Dégradé rose-rouge */
+        border: none !important; /* Supprime les bordures */
+        padding: 12px 16px !important; /* Rendre les boutons plus grands */
+        border-radius: 8px !important; /* Arrondir les coins */
+        font-size: 16px !important; /* Texte plus lisible */
+        font-weight: bold !important; /* Texte en gras */
+        transition: all 0.3s ease-in-out !important; /* Animation fluide */
+        cursor: pointer !important; /* Curseur interactif */
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2) !important; /* Ombre pour effet 3D */
     }}
     /* Ajuster les boutons au survol */
     button:hover, 
     .stButton button:hover, 
     .stDownloadButton button:hover, 
     .st-emotion-cache button:hover {{  
-        background-color: #0056b3 !important; /* Bleu foncé au survol */
-        border-color: #004494 !important;
+        background-color: linear-gradient(135deg, #ff6a95, #ff506b) !important; /* Dégradé plus foncé au survol */
+        transform: scale(1.05) !important; /* Effet zoom léger */
     }}
 
     /* Rétablir l'affichage normal des icônes et flèches */
