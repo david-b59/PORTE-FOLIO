@@ -53,7 +53,7 @@ css = f'''
 
         section[data-testid='stSidebar'] > div {{
             
-            width: 80px;
+            width: 100px;
             position: relative;
             z-index: 1;
             top: 0;
