@@ -85,23 +85,25 @@ css = f'''
     .stButton button, 
     .stDownloadButton button, 
     .st-emotion-cache button {{  
-        color: white !important;  /* Texte blanc */
-        background: #ff4b4b !important; /* Rouge stylé */
-        border: 2px solid #cc0000 !important; /* Bordure rouge foncé */
-        padding: 10px 15px !important; /* Agrandir légèrement les boutons */
-        border-radius: 6px !important; /* Coins arrondis */
+        color: white !important;  /* Texte blanc pour contraste */
+        background: linear-gradient(135deg, #2C3E50, #4CA1AF) !important; /* Dégradé bleu-gris pro */
+        border: 2px solid #1B2A41 !important; /* Bordure gris foncé */
+        padding: 12px 18px !important; /* Agrandir les boutons */
+        border-radius: 8px !important; /* Coins arrondis */
         font-size: 16px !important; /* Texte lisible */
         font-weight: bold !important; /* Texte en gras */
         cursor: pointer !important; /* Curseur interactif */
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2) !important; /* Ombre subtile */
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3) !important; /* Ombre pour effet 3D */
+        transition: all 0.3s ease-in-out !important; /* Animation fluide */
     }}
     /* Ajuster les boutons au survol */
     button:hover, 
     .stButton button:hover, 
     .stDownloadButton button:hover, 
     .st-emotion-cache button:hover {{  
-        background: #e60000 !important; /* Rouge plus foncé au survol */
-        transform: scale(1.05) !important; /* Effet zoom léger */
+        background: linear-gradient(135deg, #1B2A41, #3B6978) !important; /* Dégradé plus foncé au survol */
+        transform: scale(1.07) !important; /* Effet zoom léger */
+        border-color: #16222A !important;
     }}
 
     /* Rétablir l'affichage normal des icônes et flèches */
