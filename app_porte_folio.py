@@ -108,7 +108,7 @@ css = f'''
     }}
 
     /* Corriger les blocs de code (code copier-coller) */
-    pre, code {{
+    pre, code , code span{{
         color: #00ff00 !important;  /* Texte vert clair */
         background-color: #2a2a2a !important; /* Fond gris foncé */
         font-family: 'Courier New', Courier, monospace !important;
