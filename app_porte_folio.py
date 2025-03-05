@@ -110,7 +110,7 @@ css = f'''
     /* Corriger les blocs de code (code copier-coller) */
     pre, code {{
         color: #2a2a2a !important; /* Texte vert clair pour bon contraste */
-        #background-color: #2a2a2a !important; /* Fond gris foncé au lieu de noir */
+        
         font-family: 'Courier New', Courier, monospace !important;
         padding: 10px;
         border-radius: 5px;
