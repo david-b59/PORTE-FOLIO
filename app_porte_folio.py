@@ -244,29 +244,19 @@ if tabs == 'Présentation':
 
     # Section "Compétences Techniques"
     st.markdown('<div class="subtitle">Compétences Techniques</div>', unsafe_allow_html=True)
-    st.markdown(
-        """
-        <div class="icon">
-            📄 <b>HTML, CSS, JavaScript</b> : Développement web et bases du front-end.
-        </div>
-        <div class="icon">
-            📊 <b>SQL</b> : Gestion et manipulation des bases de données.
-        </div>
-        <div class="icon">
-            🐍 <b>Python</b> : Analyse de données et automatisation.
-        </div>
-        <div class="icon">
-            🐍 <b>BILIOTHEQUES</b> : BI Numpy, Pandas, MatPlotLib, Seaborn, Plotly, Streamlit, Sci-kit learn, follium, re.
-        </div>
-        <div class="icon">
-            🤖 <b>Machine Learning</b> : Régressions, classifications, clustering non-supervisé, entraînement des modèles, NLP.
-        </div>
-        <div class="icon">
-            🤖 <b>TECHNIQUE</b> : Webscrapping, API Rest, Geocodage.
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
+st.markdown(
+    """
+    <div class="icon">💻 <b>Développement Web</b> : HTML, CSS, JavaScript pour créer des interfaces interactives et responsives.</div>
+    <div class="icon">🗄️ <b>Gestion des Bases de Données</b> : SQL et MySQL pour l’extraction, la manipulation et la sécurisation des données.</div>
+    <div class="icon">🐍 <b>Analyse de Données & Automatisation</b> : Python, R (notions) et Git pour le traitement, l’analyse et l’automatisation des flux de données.</div>
+    <div class="icon">📊 <b>Bibliothèques & DataViz</b> : Numpy, Pandas, Matplotlib, Seaborn, Plotly et Streamlit pour la visualisation et l’interprétation des données.</div>
+    <div class="icon">🤖 <b>Machine Learning & IA</b> : Régressions, classifications, clustering non supervisé, NLP et intégration de chatbots (LLM) pour des solutions prédictives et interactives.</div>
+    <div class="icon">🔍 <b>Techniques d’Intégration</b> : Webscrapping, API Rest, Geocodage et méthodes ELT/ETL pour collecter et intégrer des données provenant de multiples sources.</div>
+    <div class="icon">☁️ <b>Cloud & DevOps</b> : Docker, dbt, AWS et Notion Cloud pour le déploiement, la gestion d’infrastructures et l’automatisation des workflows.</div>
+    <div class="icon">⚙️ <b>Outils & Méthodologies</b> : PowerBI, Looker Studio, Dax et Agile pour la création de dashboards, la gestion de projets et l’optimisation des processus analytiques.</div>
+    """,
+    unsafe_allow_html=True,
+)
 
     # Section "Qualités Personnelles"
     st.markdown('<div class="subtitle">Qualités Personnelles</div>', unsafe_allow_html=True)
